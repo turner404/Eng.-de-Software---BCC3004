@@ -1,0 +1,23 @@
+class Pagamento:
+    def __init__(self, tipo_pagamento):
+        self.tipo_pagamento = tipo_pagamento
+
+    def processar_pagamento(self):
+        if self.tipo_pagamento == 'cartao':
+            processador = ProcessadorCartao()
+            processador.processar()
+        elif self.tipo_pagamento == 'paypal':
+            processador = ProcessadorPayPal()
+            processador.processar()
+
+class ProcessadorCartao:
+    def processar(self):
+        print("Processando pagamento com cartão...")
+
+class ProcessadorPayPal:
+    def processar(self):
+        print("Processando pagamento com PayPal...")
+
+# Exemplo de uso
+pagamento_cartao = Pagamento('cartao')
+pagamento_cartao.processar_pagamento()
