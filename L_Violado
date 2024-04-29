@@ -1,0 +1,23 @@
+class Animal:
+    def make_sound(self):
+        pass
+
+class Passaro(Animal):
+    def make_sound(self):
+        return "Canto do pássaro"
+
+# Função para fazer um animal emitir som
+def emit_sound(animal):
+    return animal.make_sound()
+
+# Exemplo de uso
+passaro = Passaro()
+print(emit_sound(passaro))  # Saída: "Canto do pássaro"
+
+class Pato(Passaro):
+    def make_sound(self):
+        return "Quack!"
+
+# Exemplo de uso
+pato = Pato()
+print(emit_sound(pato))  # Saída: "Quack!"
