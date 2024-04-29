@@ -1,0 +1,20 @@
+class Funcionario:
+    def __init__(self, nome, cargo, salario_base, horas_trabalhadas):
+        self.nome = nome
+        self.cargo = cargo
+        self.salario_base = salario_base
+        self.horas_trabalhadas = horas_trabalhadas
+
+    def calcular_salario(self):
+        if self.cargo == 'Gerente':
+            return self.salario_base + 500 * self.horas_trabalhadas
+        elif self.cargo == 'Desenvolvedor':
+            return self.salario_base + 300 * self.horas_trabalhadas
+        elif self.cargo == 'Analista':
+            return self.salario_base + 200 * self.horas_trabalhadas
+        else:
+            return self.salario_base + 100 * self.horas_trabalhadas
+
+# Exemplo de uso
+funcionario = Funcionario("Alice", "Desenvolvedor", 3000, 40)
+print(funcionario.calcular_salario())  # Saída: 12300 (3000 + 300 * 40)
