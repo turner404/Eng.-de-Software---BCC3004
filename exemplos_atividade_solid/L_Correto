@@ -1,0 +1,20 @@
+class Animal:
+    def make_sound(self):
+        pass
+
+class Passaro(Animal):
+    def make_sound(self):
+        return "Canto do pássaro"
+
+class Pato(Animal):  # Agora Pato não herda de Passaro
+    def make_sound(self):
+        return "Quack!"
+
+# Exemplo de uso
+passaro = Passaro()
+print(emit_sound(passaro))  # Saída: "Canto do pássaro"
+
+pato = Pato()
+print(emit_sound(pato))  # Saída: "Quack!"
+
+#Pato não herda mais de Passaro. Em vez disso, ambos herdam diretamente de Animal.
