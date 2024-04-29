@@ -1,0 +1,24 @@
+# Agora, teremos a classe Funcionario, que estará encarregada apenas de armazenar os dados do funcionário, e a classe CalculadoraSalario, que se concentra exclusivamente em calcular o salário.
+
+class Funcionario:
+    def __init__(self, nome, cargo, salario_base, horas_trabalhadas):
+        self.nome = nome
+        self.cargo = cargo
+        self.salario_base = salario_base
+        self.horas_trabalhadas = horas_trabalhadas
+
+class CalculadoraSalario:
+    def calcular_salario(self, funcionario):
+        if funcionario.cargo == 'Gerente':
+            return funcionario.salario_base + 500 * funcionario.horas_trabalhadas
+        elif funcionario.cargo == 'Desenvolvedor':
+            return funcionario.salario_base + 300 * funcionario.horas_trabalhadas
+        elif funcionario.cargo == 'Analista':
+            return funcionario.salario_base + 200 * funcionario.horas_trabalhadas
+        else:
+            return funcionario.salario_base + 100 * funcionario.horas_trabalhadas
+
+# Exemplo de uso
+funcionario = Funcionario("Alice", "Desenvolvedor", 3000, 40)
+calculadora_salario = CalculadoraSalario()
+print(calculadora_salario.calcular_salario(funcionario))  # Saída: 12300 (3000 + 300 * 40)
