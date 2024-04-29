@@ -1,0 +1,33 @@
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Square(Shape):
+    def __init__(self, side_length):
+        self.side_length = side_length
+
+    def area(self):
+        return self.side_length ** 2
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius ** 2
+
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return 0.5 * self.base * self.height
+
+# Exemplo de uso
+shapes = [Square(5), Circle(3), Triangle(4, 6)]
+for shape in shapes:
+    print(f"Área da forma: {shape.area()}")
