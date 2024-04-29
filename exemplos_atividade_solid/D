@@ -1,0 +1,24 @@
+class ServicoNotificacao:
+    def __init__(self, remetente_notificacao):
+        self.remetente_notificacao = remetente_notificacao
+
+    def enviar_notificacao(self, destinatario, mensagem):
+        self.remetente_notificacao.enviar_mensagem(destinatario, mensagem)
+
+class RemetenteEmail:
+    def enviar_mensagem(self, destinatario, mensagem):
+        print(f"Enviando e-mail para {destinatario}: {mensagem}")
+
+class RemetenteSMS:
+    def enviar_mensagem(self, destinatario, mensagem):
+        print(f"Enviando SMS para {destinatario}: {mensagem}")
+
+# Exemplo de uso
+remetente_email = RemetenteEmail()
+remetente_sms = RemetenteSMS()
+
+notificacao_email = ServicoNotificacao(remetente_email)
+notificacao_sms = ServicoNotificacao(remetente_sms)
+
+notificacao_email.enviar_notificacao("alice@example.com", "Olá, Alice!")
+notificacao_sms.enviar_notificacao("Bob", "Oi, Bob!")
