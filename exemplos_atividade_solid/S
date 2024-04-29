@@ -1,0 +1,24 @@
+class Pedido:
+    def __init__(self, id_pedido, nome_cliente, valor_total):
+        self.id_pedido = id_pedido
+        self.nome_cliente = nome_cliente
+        self.valor_total = valor_total
+
+class ProcessadorPedido:
+    def processar_pedido(self, pedido):
+        # Processa o pedido
+        print(f"Processando pedido {pedido.id_pedido} para o cliente {pedido.nome_cliente}")
+        print(f"Valor total: R${pedido.valor_total}")
+
+class RegistroPedido:
+    def registrar_pedido(self, pedido):
+        # Registra o pedido
+        print(f"Registrando pedido {pedido.id_pedido} para o cliente {pedido.nome_cliente}")
+
+# Exemplo de uso
+pedido = Pedido(1, "Alice", 100)
+processador_pedido = ProcessadorPedido()
+registro_pedido = RegistroPedido()
+
+processador_pedido.processar_pedido(pedido)
+registro_pedido.registrar_pedido(pedido)
