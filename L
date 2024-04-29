@@ -1,0 +1,24 @@
+class Bird:
+    def fly(self):
+        return "Flying"
+
+class Ostrich(Bird):
+    def fly(self):
+        return "Can't fly"
+
+class Penguin(Bird):
+    def fly(self):
+        raise NotImplementedError("Penguins can't fly")
+
+# Função para voar com qualquer pássaro
+def bird_fly(bird):
+    return bird.fly()
+
+# Exemplo de uso
+bird = Bird()
+ostrich = Ostrich()
+penguin = Penguin()
+
+print(bird_fly(bird))     # Saída: "Flying"
+print(bird_fly(ostrich))  # Saída: "Can't fly"
+print(bird_fly(penguin))  # Erro: NotImplementedError
