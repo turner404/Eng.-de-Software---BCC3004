@@ -1,0 +1,41 @@
+from abc import ABC, abstractmethod
+
+class Cliente(ABC):
+    @abstractmethod
+    def calcular_desconto(self, total):
+        pass
+
+class ClienteRegular(Cliente):
+    def calcular_desconto(self, total):
+        return total * 0.1  # 10% de desconto para clientes regulares
+
+class ClienteVIP(Cliente):
+    def calcular_desconto(self, total):
+        return total * 0.2  # 20% de desconto para clientes VIP
+
+class CarrinhoCompras:
+    def __init__(self, cliente):
+        self.cliente = cliente
+
+    def calcular_total(self, itens):
+        total = sum(item.preco for item in itens)
+        desconto = self.cliente.calcular_desconto(total)
+        return total - desconto
+
+class Item:
+    def __init__(self, nome, preco):
+        self.nome = nome
+        self.preco = preco
+
+# Exemplo de uso
+cliente_regular = ClienteRegular()
+carrinho_regular = CarrinhoCompras(cliente_regular)
+itens = [Item("Produto 1", 100), Item("Produto 2", 50)]
+total_com_desconto_regular = carrinho_regular.calcular_total(itens)
+print("Total com desconto para cliente regular:", total_com_desconto_regular)
+
+cliente_vip = ClienteVIP()
+carrinho_vip = CarrinhoCompras(cliente_vip)
+itens = [Item("Produto 1", 100), Item("Produto 2", 50)]
+total_com_desconto_vip = carrinho_vip.calcular_total(itens)
+print("Total com desconto para cliente VIP:", total_com_desconto_vip)
